@@ -2,58 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Web to Lead Form</title>
-</head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17273387835"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'AW-17273387835'); </script>
-<body>
- <!-- Google tag (gtag.js) --> 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN00000huxRG" method="POST">
- 
-  <!-- Required Salesforce Hidden Fields -->
-  <input type="hidden" name="oid" value="00DdN00000huxRG">
-  <input type="hidden" name="retURL" value="http://www.google.com">
- 
-  <!-- Debugging (optional) -->
-  <!--
-  <input type="hidden" name="debug" value="1">
-  <input type="hidden" name="debugEmail" value="deeptimayeekamila65@gmail.com">
-  -->
- 
-  <!-- Visible Input Fields -->
-  <label for="first_name">First Name</label>
-  <input id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
- 
-  <label for="last_name">Last Name</label>
-  <input id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
- 
-  <label for="email">Email</label>
-  <input id="email" maxlength="80" name="email" size="20" type="text" /><br>
- 
-  <label for="company">Company</label>
-  <input id="company" maxlength="40" name="company" size="20" type="text" /><br>
- 
-  <!-- ✅ Hidden GCLID Field -->
-  <input type="hidden" name="First_GCLID__c" id="gclid-field" />
- 
-  <input type="submit" name="submit" value="Submit" />
- 
-</form>
- 
-<!-- ✅ JavaScript to Capture GCLID from URL -->
-<script>
-  function getParam(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
-  }
- 
-  const gclid = getParam('gclid');
-  if (gclid) {
-    const gclidField = document.getElementById('gclid-field');
-    if (gclidField) {
-      gclidField.value = gclid;
+  <title>LocalEyes Web to Lead Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
     }
-  }
-</script>
- 
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      height: 90px;
+    }
+
+    h1 {
+      color: #d32f2f;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .section-title {
+      margin-top: 30px;
+      font-weight: bold;
+      color: #015bf7;
+      font-size: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input::placeholder, textarea::placeholder { 
+      color: #999;
+      font-style: italic;
+      font-size: 14px;
+      font-weight: bold;
+       }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    textarea {
+      height: 40px;
+    }
+
+    .checkbox-group,
+    .radio-group {
+      margin-top: 10px;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      display: block;
+      margin-top: 5px;
+    }
+    .submit{
+      justify-content: center;
+      display: flex;
+    }
+
+    .submit-btn {
+      background-color: rgb(251, 128, 4);
+      color: white;
+      padding: 12px 20px;
+      border:none;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+      align-items: center;
+    }
+
+    .submit-btn:hover {
+      background-color: rgb(251, 128, 4);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 4px;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      justify-content: center;   
+    }
+
+    .option-button {
+      flex: 0 1 45%;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .option-button.selected {
+      background-color: #d32f2f;
+      color: white;
+      border-color: #d32f2f;
+    }
+
+
+    #other-input {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="Form-body">
+  <div class="logo">
+    <img src="./localeye.png" alt="Location Icon">
+  </div>
+
+  <h1>Interested in advertising with us?</h1>
+  <p>Tell us more about you and a LocalEyes team member will be in touch...</p>
+
+  <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9H000001oETp" method="POST">
+
+<input type=hidden name="oid" value="00D9H000001oETp">
+<input type=hidden name="retURL" value="http://pheniox147.github.io">
+    <input type="hidden" name="First_GCLID__c" id="gclid-field">
+    <input type="hidden" name="industry" id="industry">
+
+    <div class="section-title">What best describes you?</div>
+    <div class="button-group">
+      <div class="option-button" onclick="selectOption(this, 'Banking')">Banking</div>
+      <div class="option-button" onclick="selectOption(this, 'Consulting')">Consulting</div>
+      <div class="option-button" onclick="selectOption(this, 'Finance')">Finance</div>
+      <div class="option-button" onclick="selectOption(this, 'Retail')">Retail</div>
+      <div class="option-button" onclick="selectOption(this, 'Other')">Other</div>
+    </div>
+    <div id="other-input">
+      <input type="text" id="00N9H0000020yPd" name="00N9H0000020yPd" placeholder="In a few words,Please best describe who you are...">
+    </div>
+
+    <div class="section-title">Tell us about your business..</div>
+
+    
+    <input id="company" name="company" type="text" maxlength="40" placeholder="Company Name" required>
+
+    <input id="first_name" name="first_name" type="text" maxlength="40" placeholder="First Name" required>
+
+    <input id="last_name" name="last_name" type="text" maxlength="80" placeholder="Last Name" required>
+
+    <input id="email" name="email" type="email" maxlength="80" placeholder="Email Address" required>
+
+    <input id="country" name="country" type="text" maxlength="80" placeholder="Country" required>
+
+    <textarea id="description" name="description" placeholder="Tell us how we can help..."></textarea>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="privacy_policy" required> I accept and acknowledge the Privacy Policy</label>
+    </div>
+    <div class="submit">
+    <input type="submit" name="submit" class="submit-btn" value="SUBMIT">
+  </div>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    Thank you for your enquiry. A LocalEyes team member will reach out to you shortly.
+  </div>
+  </div>
+
+  <script>
+    function getParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    const gclid = getParam('gclid');
+    if (gclid) {
+      const gclidField = document.getElementById('gclid-field');
+      if (gclidField) {
+        gclidField.value = gclid;
+      }
+    }
+
+    function selectOption(element, value) {
+      document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('selected', 'hidden'));
+      element.classList.add('selected');
+      document.getElementById('industry').value = value;
+      if (value === 'Other') {
+        document.querySelectorAll('.option-button').forEach(btn => {
+          if (btn !== element) {
+            btn.classList.add('hidden');
+          }
+        });
+      }
+      document.getElementById('other-input').style.display = value === 'Other' ? 'block' : 'none';
+    }
+
+    function handleSubmit() {
+      const leadType = document.getElementById('industry').value;
+      if (leadType === 'Other') {
+        const otherText = document.getElementById('00N9H0000020yPd').value;
+        document.getElementById('industry').value = 'Other';
+        document.getElementById('00N9H0000020yPd').value = otherText;
+
+      }
+      return true;
+    }
+  </script>
+
 </body>
 </html>
